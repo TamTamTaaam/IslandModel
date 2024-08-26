@@ -1,9 +1,6 @@
 package dataAnimals;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
 import factory.AnimalCreationContext;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,41 +8,34 @@ import lombok.NoArgsConstructor;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "name")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Wolf.class, name = "Wolf"),
-        @JsonSubTypes.Type(value = Bear.class, name = "Bear"),
-        @JsonSubTypes.Type(value = Fox.class, name = "Fox"),
-        @JsonSubTypes.Type(value = Snake.class, name = "Snake"),
-        @JsonSubTypes.Type(value = Eagle.class, name = "Eagle"),
-        @JsonSubTypes.Type(value = Horse.class, name = "Horse"),
-        @JsonSubTypes.Type(value = Mouse.class, name = "Mouse"),
-        @JsonSubTypes.Type(value = Rabbit.class, name = "Rabbit"),
-        @JsonSubTypes.Type(value = Worm.class, name = "Worm")
+        @JsonSubTypes.Type(value = Wolf.class),
+        @JsonSubTypes.Type(value = Bear.class),
+        @JsonSubTypes.Type(value = Fox.class),
+        @JsonSubTypes.Type(value = Snake.class),
+        @JsonSubTypes.Type(value = Eagle.class),
+        @JsonSubTypes.Type(value = Horse.class),
+        @JsonSubTypes.Type(value = Mouse.class),
+        @JsonSubTypes.Type(value = Rabbit.class),
+        @JsonSubTypes.Type(value = Worm.class)
 })
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public abstract class Animal {
-    @JsonProperty
+    @JsonProperty("name")
     String name;
-
-    @JsonProperty
+    @JsonProperty("weight")
     double weight;
-
-    @JsonProperty
+    @JsonProperty("maxAmount")
     int maxAmount;
-
-    @JsonProperty
+    @JsonProperty("maxSpeed")
     int maxSpeed;
-
-    @JsonProperty
+    @JsonProperty("maxSatiety")
     double maxSatiety;
-
-    @JsonProperty
+    @JsonProperty("canEatAnimal")
     boolean canEatAnimal;
-
-    @JsonProperty
+    @JsonProperty("canBeEaten")
     boolean canBeEaten;
-    @JsonCreator
+@JsonCreator
     public Animal(AnimalCreationContext animalCreationContext) {
         this.name = animalCreationContext.getName();
         this.weight = animalCreationContext.getWeight();

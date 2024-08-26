@@ -1,28 +1,9 @@
-{"Mouse": {
-    "name":null,
-    "weight":0.0,
-    "maxAmount":0,
-    "maxSpeed":10,
-    "maxSatiety":0.0,
-    "canEatAnimal":false,
-    "canBeEaten":false
-},
-  "Bear":{
-    "name":null,
-    "weight":0.0,
-    "maxAmount":0,
-    "maxSpeed":0,
-    "maxSatiety":0.0,
-    "canEatAnimal":false,
-    "canBeEaten":false
-  },
-  "Fox":{
-    "name":null,
-    "weight":0.0,
-    "maxAmount":0,
-    "maxSpeed":0,
-    "maxSatiety":0.0,
-    "canEatAnimal":false,
-    "canBeEaten":false
-  }
-}
+[
+  {"name":"bbb",
+    "weight":5.0,
+    "maxAmount":100,
+    "maxSpeed":5,
+    "maxSatiety":2.0,
+    "canEatAnimal":true,
+    "canBeEaten":true},
+  {"name":null,"weight":0.0,"maxAmount":0,"maxSpeed":0,"maxSatiety":0.0,"canEatAnimal":false,"canBeEaten":false},{"name":null,"weight":0.0,"maxAmount":0,"maxSpeed":0,"maxSatiety":0.0,"canEatAnimal":false,"canBeEaten":false}]

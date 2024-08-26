@@ -2,15 +2,15 @@ import dataAnimals.*;
 import factory.AnimalCreationContext;
 
 public enum Animals {
-    BEAR( new Bear(new AnimalCreationContext())),
-    EAGLE(new Eagle(new AnimalCreationContext())),
-    FOX (new Fox(new AnimalCreationContext())),
-    HORSE(new Horse(new AnimalCreationContext())),
-    MOUSE(new Mouse(new AnimalCreationContext())),
-    RABBIT(new Rabbit(new AnimalCreationContext())),
-    SNAKE(new Snake(new AnimalCreationContext())),
-    WOLF(new Wolf(new AnimalCreationContext())),
-    WORM(new Worm(new AnimalCreationContext()));
+    BEAR( new Bear()),
+    EAGLE(new Eagle()),
+    FOX (new Fox()),
+    HORSE(new Horse()),
+    MOUSE(new Mouse()),
+    RABBIT(new Rabbit()),
+    SNAKE(new Snake()),
+    WOLF(new Wolf()),
+    WORM(new Worm());
 
 
     private final Animal animal;
