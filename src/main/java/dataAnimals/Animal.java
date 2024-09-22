@@ -21,20 +21,29 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public abstract class Animal {
+    public Animals animals;
+
     @JsonProperty("name")
     String name;
+
     @JsonProperty("weight")
     double weight;
+
     @JsonProperty("maxAmount")
     int maxAmount;
+
     @JsonProperty("maxSpeed")
     int maxSpeed;
+
     @JsonProperty("maxSatiety")
     double maxSatiety;
+
     @JsonProperty("canEatAnimal")
     boolean canEatAnimal;
+
     @JsonProperty("canBeEaten")
     boolean canBeEaten;
+
 @JsonCreator
     public Animal(AnimalCreationContext animalCreationContext) {
         this.name = animalCreationContext.getName();

@@ -12,6 +12,7 @@ public class Wolf extends Animal {
     @JsonCreator
     public Wolf(AnimalCreationContext animalCreationContext) {
         super(animalCreationContext);
+        this.animals=Animals.WOLF;
     }
 
 }

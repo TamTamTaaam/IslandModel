@@ -1,5 +1,4 @@
-import dataAnimals.*;
-import factory.AnimalCreationContext;
+package dataAnimals;
 
 public enum Animals {
     BEAR( new Bear()),
@@ -11,7 +10,6 @@ public enum Animals {
     SNAKE(new Snake()),
     WOLF(new Wolf()),
     WORM(new Worm());
-
 
     private final Animal animal;
 
@@ -28,3 +26,4 @@ public enum Animals {
     }
 
 }
+
