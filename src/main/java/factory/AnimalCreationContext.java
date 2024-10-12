@@ -15,6 +15,9 @@ public class AnimalCreationContext {
    @JsonProperty("name")
    private String name;
 
+   @JsonProperty("nameAnimal")
+   String nameAnimal;
+
    @JsonProperty("weight")
    private double weight;
 
@@ -33,6 +36,7 @@ public class AnimalCreationContext {
    @JsonCreator
    public AnimalCreationContext(
            @JsonProperty("name") String name,
+           @JsonProperty("nameAnimal") String nameAnimal,
            @JsonProperty("weight") double weight,
            @JsonProperty("maxAmount") int maxAmount,
            @JsonProperty("maxSpeed") int maxSpeed,
@@ -40,6 +44,7 @@ public class AnimalCreationContext {
            @JsonProperty("chanceEatingAnimal") Map<String, Integer> chanceEatingAnimal
    ) {
       this.name = name;
+      this.nameAnimal = nameAnimal;
       this.weight = weight;
       this.maxAmount = maxAmount;
       this.maxSpeed = maxSpeed;

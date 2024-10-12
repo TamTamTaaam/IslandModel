@@ -2,7 +2,6 @@ package dataAnimals;
 
 import com.fasterxml.jackson.annotation.*;
 import factory.AnimalCreationContext;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,6 +27,9 @@ public abstract class Animal {
     @JsonProperty("name")
     String name;
 
+    @JsonProperty("nameAnimal")
+    String nameAnimal;
+
     @JsonProperty("weight")
     double weight;
 
@@ -47,6 +49,7 @@ public abstract class Animal {
 @JsonCreator
     public Animal(AnimalCreationContext animalCreationContext) {
         this.name = animalCreationContext.getName();
+        this.nameAnimal = animalCreationContext.getNameAnimal();
         this.weight = animalCreationContext.getWeight();
         this.maxAmount = animalCreationContext.getMaxAmount();
         this.maxSpeed = animalCreationContext.getMaxSpeed();

@@ -1,7 +1,10 @@
 package dataAnimals;
 
+import static dataAnimals.LibraryAnimal.LIST_ALL_ANIMALS_IN_PROGRAM;
+import static dataAnimals.LibraryAnimal.MAP_ALL_ANIMALS_IN_PROGRAM;
+
 public enum Animals {
-    BEAR( new Bear()),
+    BEAR( new Bear(MAP_ALL_ANIMALS_IN_PROGRAM.get("Bear").maxSatiety)),
     EAGLE(new Eagle()),
     FOX (new Fox()),
     HORSE(new Horse()),
@@ -16,7 +19,7 @@ public enum Animals {
     Animals(Animal animal) {
         this.animal = animal;
     }
-    public Animal findAnimal(String animalName) {
+    public static Animal findAnimal(String animalName) {
         try {
             Animals value = Animals.valueOf(animalName.toUpperCase());
             return value.animal;

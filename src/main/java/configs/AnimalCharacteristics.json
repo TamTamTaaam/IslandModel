@@ -1,6 +1,7 @@
  [
   {
     "name": "Wolf",
+    "nameAnimal": "Wolf",
     "weight": 50.0,
     "maxAmount": 30,
     "maxSpeed": 3,
@@ -13,6 +14,7 @@
   },
   {
     "name": "Snake",
+    "nameAnimal": "Snake",
     "weight": 15.0,
     "maxAmount": 30,
     "maxSpeed": 1,
@@ -25,6 +27,7 @@
   },
   {
     "name": "Fox",
+    "nameAnimal": "Fox",
     "weight": 8.0,
     "maxAmount": 30,
     "maxSpeed": 2,
@@ -37,6 +40,7 @@
   },
   {
     "name": "Bear",
+    "nameAnimal": "Bear",
     "weight": 500.0,
     "maxAmount": 5,
     "maxSpeed": 2,
@@ -50,6 +54,7 @@
   },
   {
     "name": "Eagle",
+    "nameAnimal": "Eagle",
     "weight": 6.0,
     "maxAmount": 20,
     "maxSpeed": 3,
@@ -62,6 +67,7 @@
   },
   {
     "name": "Horse",
+    "nameAnimal": "Horse",
     "weight": 400.0,
     "maxAmount": 20,
     "maxSpeed": 4,
@@ -69,6 +75,7 @@
   },
   {
     "name": "Rabbit",
+    "nameAnimal": "Rabbit",
     "weight": 2.0,
     "maxAmount": 150,
     "maxSpeed": 2,
@@ -76,6 +83,7 @@
   },
   {
     "name": "Mouse",
+    "nameAnimal": "Mouse",
     "weight": 0.05,
     "maxAmount": 500,
     "maxSpeed": 1,
@@ -83,6 +91,7 @@
   },
   {
     "name": "Worm",
+    "nameAnimal": "Worm",
     "weight": 0.01,
     "maxAmount": 1000,
     "maxSpeed": 0,

@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class ReadAnimalsService {
     private final ObjectMapper objectMapper = new ObjectMapper();
-    public List<Animal> ALL_ANIMAL_IN_PROGRAM;
 
     public List<Animal> getListAllAnimals() throws IOException {
 
@@ -35,7 +35,4 @@ public class ReadAnimalsService {
         return animals;
     }
 
-    public void addAllAnimalInList() {
-        
-    }
 }
