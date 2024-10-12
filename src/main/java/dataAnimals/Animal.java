@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "name")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Wolf.class),
@@ -38,11 +40,9 @@ public abstract class Animal {
     @JsonProperty("maxSatiety")
     double maxSatiety;
 
-    @JsonProperty("canEatAnimal")
-    boolean canEatAnimal;
+    @JsonProperty("chanceEatingAnimal")
+    Map<String, Integer> chanceEatingAnimal;
 
-    @JsonProperty("canBeEaten")
-    boolean canBeEaten;
 
 @JsonCreator
     public Animal(AnimalCreationContext animalCreationContext) {
@@ -51,8 +51,7 @@ public abstract class Animal {
         this.maxAmount = animalCreationContext.getMaxAmount();
         this.maxSpeed = animalCreationContext.getMaxSpeed();
         this.maxSatiety = animalCreationContext.getMaxSatiety();
-        this.canEatAnimal = animalCreationContext.isCanEatAnimal();
-        this.canBeEaten = animalCreationContext.isCanBeEaten();
+        this.chanceEatingAnimal = animalCreationContext.getChanceEatingAnimal();
     }
 
 }

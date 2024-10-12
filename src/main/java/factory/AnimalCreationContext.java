@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import dataAnimals.*;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 public class AnimalCreationContext {
 
@@ -25,11 +27,8 @@ public class AnimalCreationContext {
    @JsonProperty("maxSatiety")
    private double maxSatiety;
 
-   @JsonProperty("canEatAnimal")
-   private boolean canEatAnimal;
-
-   @JsonProperty("canBeEaten")
-   private boolean canBeEaten;
+   @JsonProperty("chanceEatingAnimal")
+   private Map<String, Integer> chanceEatingAnimal;
 
    @JsonCreator
    public AnimalCreationContext(
@@ -38,16 +37,15 @@ public class AnimalCreationContext {
            @JsonProperty("maxAmount") int maxAmount,
            @JsonProperty("maxSpeed") int maxSpeed,
            @JsonProperty("maxSatiety") double maxSatiety,
-           @JsonProperty("canEatAnimal") boolean canEatAnimal,
-           @JsonProperty("canBeEaten") boolean canBeEaten
+           @JsonProperty("chanceEatingAnimal") Map<String, Integer> chanceEatingAnimal
    ) {
       this.name = name;
       this.weight = weight;
       this.maxAmount = maxAmount;
       this.maxSpeed = maxSpeed;
       this.maxSatiety = maxSatiety;
-      this.canEatAnimal = canEatAnimal;
-      this.canBeEaten = canBeEaten;
+      this.chanceEatingAnimal = chanceEatingAnimal;
    }
 }
+
 

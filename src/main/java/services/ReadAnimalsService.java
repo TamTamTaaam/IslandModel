@@ -17,6 +17,8 @@ import java.util.stream.Stream;
 
 public class ReadAnimalsService {
     private final ObjectMapper objectMapper = new ObjectMapper();
+    public List<Animal> ALL_ANIMAL_IN_PROGRAM;
+
     public List<Animal> getListAllAnimals() throws IOException {
 
         List<Animal> animals = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\AnimalCharacteristics.json"),
@@ -31,5 +33,9 @@ public class ReadAnimalsService {
                 new TypeReference<HashMap<String, Animal>>() {
                 });
         return animals;
+    }
+
+    public void addAllAnimalInList() {
+        
     }
 }

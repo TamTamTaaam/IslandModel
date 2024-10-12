@@ -5,8 +5,11 @@
     "maxAmount": 30,
     "maxSpeed": 3,
     "maxSatiety": 8.0,
-    "canEatAnimal": true,
-    "canBeEaten": false
+    "chanceEatingAnimal": {
+      "Horse": 10,
+      "Rabbit": 60,
+      "Mouse": 80
+    }
   },
   {
     "name": "Snake",
@@ -14,8 +17,11 @@
     "maxAmount": 30,
     "maxSpeed": 1,
     "maxSatiety": 3.0,
-    "canEatAnimal": true,
-    "canBeEaten": true
+    "chanceEatingAnimal": {
+      "Fox": 15,
+      "Rabbit": 90,
+      "Mouse": 90
+    }
   },
   {
     "name": "Fox",
@@ -23,8 +29,11 @@
     "maxAmount": 30,
     "maxSpeed": 2,
     "maxSatiety": 2.0,
-    "canEatAnimal": true,
-    "canBeEaten": true
+    "chanceEatingAnimal": {
+      "Rabbit": 70,
+      "Mouse": 90,
+      "Worm": 40
+    }
   },
   {
     "name": "Bear",
@@ -32,8 +41,12 @@
     "maxAmount": 5,
     "maxSpeed": 2,
     "maxSatiety": 80.0,
-    "canEatAnimal": true,
-    "canBeEaten": false
+    "chanceEatingAnimal": {
+      "Snake" : 80,
+      "Horse": 40,
+      "Rabbit": 80,
+      "Mouse": 90
+    }
   },
   {
     "name": "Eagle",
@@ -41,44 +54,39 @@
     "maxAmount": 20,
     "maxSpeed": 3,
     "maxSatiety": 1.0,
-    "canEatAnimal": true,
-    "canBeEaten": false
+    "chanceEatingAnimal": {
+      "Fox" : 10,
+      "Rabbit": 80,
+      "Mouse": 90
+    }
   },
   {
     "name": "Horse",
     "weight": 400.0,
     "maxAmount": 20,
     "maxSpeed": 4,
-    "maxSatiety": 60.0,
-    "canEatAnimal": false,
-    "canBeEaten": true
+    "maxSatiety": 60.0
   },
   {
     "name": "Rabbit",
     "weight": 2.0,
     "maxAmount": 150,
     "maxSpeed": 2,
-    "maxSatiety": 0.45,
-    "canEatAnimal": false,
-    "canBeEaten": true
+    "maxSatiety": 0.45
   },
   {
     "name": "Mouse",
     "weight": 0.05,
     "maxAmount": 500,
     "maxSpeed": 1,
-    "maxSatiety": 0.01,
-    "canEatAnimal": true,
-    "canBeEaten": true
+    "maxSatiety": 0.01
   },
   {
     "name": "Worm",
     "weight": 0.01,
     "maxAmount": 1000,
     "maxSpeed": 0,
-    "maxSatiety": 0.0,
-    "canEatAnimal": false,
-    "canBeEaten": true
+    "maxSatiety": 0.0
   }]
 
 
