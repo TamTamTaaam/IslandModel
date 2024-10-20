@@ -14,8 +14,4 @@ public class Bear extends Animal {
         this.animals=Animals.BEAR;
     }
 
-    public Bear(double maxSatiety) {
-        this.maxSatiety = maxSatiety;
-        this.animals=Animals.BEAR;
-    }
 }

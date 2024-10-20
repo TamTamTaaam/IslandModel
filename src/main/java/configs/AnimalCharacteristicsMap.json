@@ -103,6 +103,6 @@
     "weight": 0.01,
     "maxAmount": 1000,
     "maxSpeed": 0,
-    "maxSatiety": 0.0
+    "maxSatiety": 0.0001
   }
 }
