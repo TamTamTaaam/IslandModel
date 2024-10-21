@@ -17,11 +17,6 @@ public class AnimalFactory {
     public AnimalFactory() throws IOException {
     }
 
-//    public Animal createAnimal() {
-//        int randomNumberOfAnimalInList = randomNumberService.getRandomNumber(LIST_ALL_ANIMALS_IN_PROGRAM.size());
-//        return Animals.findAnimal(LIST_ALL_ANIMALS_IN_PROGRAM.get(randomNumberOfAnimalInList));
-//    }
-
         private final Map<String, Function<AnimalCreationContext, Animal>> ALL_ANIMALS_MAP = Map.ofEntries(
                 Map.entry("Wolf", Wolf::new),
                 Map.entry("Bear", Bear::new),

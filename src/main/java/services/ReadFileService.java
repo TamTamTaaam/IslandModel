@@ -1,23 +1,21 @@
 package services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dataAnimals.Animal;
+import island.IslandParameters;
+import lombok.SneakyThrows;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Stream;
 
-public class ReadAnimalsService {
+
+public class ReadFileService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-
-    public Map<String, Animal> getMapAllAnimals() throws IOException {
+    @SneakyThrows
+    public Map<String, Animal> getMapAllAnimals() {
 
         Map<String, Animal> animals = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\AnimalCharacteristicsMap.json"),
                 new TypeReference<HashMap<String, Animal>>() {
@@ -34,5 +32,13 @@ public class ReadAnimalsService {
         }
         return resultListAnimals;
     }
+
+    @SneakyThrows
+    public IslandParameters getCoordinates()  {
+        IslandParameters coordinates = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\CoordinatesIsland.json"),
+                IslandParameters.class);
+        return coordinates;
+    }
+
 
 }
