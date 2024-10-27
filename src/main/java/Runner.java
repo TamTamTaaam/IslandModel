@@ -12,15 +12,7 @@ import java.util.Set;
 public class Runner {
     public static void main(String[] args) throws IOException, IllegalAccessException {
         System.out.println("hello hello");
-
-        CreatingIslandService creatingIslandService = new CreatingIslandService();
-        Map<Coordinate, Integer> countAnimalsInSomeCoordinates = creatingIslandService.countAnimalsInSomeCoordinates;
-        Set<Map.Entry<Coordinate, Integer>> entries = countAnimalsInSomeCoordinates.entrySet();
-        int sum = 0;
-        for (Map.Entry<Coordinate, Integer> map : entries) {
-           sum = sum + map.getValue();
-        }
-        System.out.println(sum);
+        
 
 
 //        AnimalFactory animalFactory = new AnimalFactory();
