@@ -24,7 +24,7 @@ public class CreatingIslandService {
         this.ISLAND = creatingWorld();
     }
 
-    public ConcurrentHashMap<Coordinate, List<Animal>> creatingWorld() throws IllegalAccessException {
+    private ConcurrentHashMap<Coordinate, List<Animal>> creatingWorld() throws IllegalAccessException {
         ConcurrentHashMap<Coordinate, List<Animal>> island = new ConcurrentHashMap<>();
         Set<Map.Entry<Coordinate, Integer>> entries = countAnimalsInSomeCoordinate.entrySet();
         for (Map.Entry<Coordinate, Integer> map : entries) {
@@ -34,7 +34,7 @@ public class CreatingIslandService {
         return island;
     }
 
-    public Map<Coordinate, Integer> creatingMapWithCountAnimalsInSomeCoordinate() {
+    private Map<Coordinate, Integer> creatingMapWithCountAnimalsInSomeCoordinate() {
         Map<Coordinate, Integer> countAnimalsInSomeCoordinate = new HashMap<>();
         int countAnimals =  ISLAND_PARAMETERS.getCountAnimals() / COUNT_COORDINATES; //133
         if(getStepCoordinateWithCountAnimalsMoreThanRest()==0) {                        //3
