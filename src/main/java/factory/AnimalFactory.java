@@ -16,17 +16,16 @@ public class AnimalFactory {
 
     public AnimalFactory() throws IOException {
     }
-
         private final Map<String, Function<AnimalCreationContext, Animal>> ALL_ANIMALS_MAP = Map.ofEntries(
                 Map.entry("Wolf", Wolf::new),
                 Map.entry("Bear", Bear::new),
                 Map.entry("Fox", Fox::new),
                 Map.entry("Eagle", Eagle::new),
-                Map.entry("Horse", (parameters) -> new Horse(parameters)),
-                Map.entry("Mouse", (parameters) -> new Mouse(parameters)),
-                Map.entry("Rabbit", (parameters) -> new Rabbit(parameters)),
-                Map.entry("Snake", (parameters) -> new Snake(parameters)),
-                Map.entry("Worm", (parameters) -> new Worm(parameters))
+                Map.entry("Horse", Horse::new),
+                Map.entry("Mouse", Mouse::new),
+                Map.entry("Rabbit", Rabbit::new),
+                Map.entry("Snake", Snake::new),
+                Map.entry("Worm", Worm::new)
         );
 
         public Animal createAnimal( ) throws IllegalAccessException {
