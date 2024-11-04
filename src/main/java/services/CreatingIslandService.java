@@ -36,8 +36,8 @@ public class CreatingIslandService {
 
     private Map<Coordinate, Integer> creatingMapWithCountAnimalsInSomeCoordinate() {
         Map<Coordinate, Integer> countAnimalsInSomeCoordinate = new HashMap<>();
-        int countAnimals =  ISLAND_PARAMETERS.getCountAnimals() / COUNT_COORDINATES; //133
-        if(getStepCoordinateWithCountAnimalsMoreThanRest()==0) {                        //3
+        int countAnimals =  ISLAND_PARAMETERS.getCountAnimals() / COUNT_COORDINATES;
+        if(getStepCoordinateWithCountAnimalsMoreThanRest()==0) {
             for (int i = 1; i <= ISLAND_PARAMETERS.getCoordinateX(); i++) {
                 for (int j = 1; j <= ISLAND_PARAMETERS.getCoordinateY(); j++) {
                     countAnimalsInSomeCoordinate.put(new Coordinate(i, j), countAnimals);
