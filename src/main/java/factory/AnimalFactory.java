@@ -28,7 +28,7 @@ public class AnimalFactory {
                 Map.entry("Worm", Worm::new)
         );
 
-        public Animal createAnimal( ) throws IllegalAccessException {
+        public Animal createAnimal() throws IllegalAccessException {
             int randomNumberOfAnimalInList = randomNumberService.getRandomNumber(LIST_ALL_ANIMALS_IN_PROGRAM.size());
             String keyAnimal = LIST_ALL_ANIMALS_IN_PROGRAM.get(randomNumberOfAnimalInList);
             Animal animal = MAP_ALL_ANIMALS_IN_PROGRAM.get(keyAnimal);

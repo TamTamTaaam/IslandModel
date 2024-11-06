@@ -6,18 +6,30 @@ import services.CreatingOneCoordinateService;
 import services.ReadFileService;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Runner {
     public static void main(String[] args) throws IOException, IllegalAccessException {
         System.out.println("hello hello");
         CreatingIslandService creatingIslandService = new CreatingIslandService();
-        ConcurrentHashMap<Coordinate, List<Animal>> island = creatingIslandService.ISLAND;
+        ConcurrentHashMap<Coordinate, List<IslandObject>> island = creatingIslandService.ISLAND;
+        Coordinate coo = new Coordinate(1,1);
+        List<IslandObject> orDefault = island.get(coo);
+
         System.out.println(island);
+/*
+        AnimalFactory animalFactory = new AnimalFactory();
+        Animal animal = animalFactory.createAnimal();
+        System.out.println(animal.getMaxAmount());*/
+
+
+//        Set<Map.Entry<String, Animal>> entries = mapAnimals.entrySet();
+//        for (Map.Entry<String, Animal> map : entries) {
+//            String key = map.getKey();
+//            resultListAnimals.add(key);
+//        }
+//        return resultListAnimals;
 
 
 //        CreatingIslandService creatingIslandService = new CreatingIslandService();

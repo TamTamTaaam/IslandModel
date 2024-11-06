@@ -21,8 +21,7 @@ import java.util.Map;
 })
 @Data
 @NoArgsConstructor
-public abstract class Animal {
-    public Animals animals;
+public abstract class Animal extends IslandObject {
 
     @JsonProperty("name")
     String name;
