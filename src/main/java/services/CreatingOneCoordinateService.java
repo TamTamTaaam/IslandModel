@@ -7,8 +7,6 @@ import factory.AnimalFactory;
 import lombok.SneakyThrows;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import static dataAnimals.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 import static dataAnimals.AnimalLibrary.PLANT;
 

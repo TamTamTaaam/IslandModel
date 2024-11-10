@@ -1,11 +1,6 @@
 package services;
 import dataAnimals.IslandObject;
-import dataAnimals.Plant;
 import island.Coordinate;
-import dataAnimals.Animal;
-import lombok.SneakyThrows;
-
-import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,8 +13,7 @@ public class CreatingStartingFieldService {
     private final CreatingOneCoordinateService creatingOneCoordinateService = new CreatingOneCoordinateService();
 
 
-    @SneakyThrows
-    public CreatingStartingFieldService() throws IOException {
+    public CreatingStartingFieldService() {
         this.COUNT_COORDINATES = ISLAND_PARAMETERS.getCoordinateX()*ISLAND_PARAMETERS.getCoordinateY();
         this.LIMIT_COUNT_ANIMALS_IN_SOME_COORDINATES = creatingMapWithLimitCountAnimalsInSomeCoordinate();
         this.ISLAND = creatingWorld();
