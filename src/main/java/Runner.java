@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Runner {
     public static void main(String[] args) throws IOException, IllegalAccessException {
-        System.out.println("hello hello");
-        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
-        ConcurrentHashMap<Coordinate, List<IslandObject>> island = creatingIslandService.ISLAND;
-        Coordinate coo = new Coordinate(1,1);
-        List<IslandObject> orDefault = island.get(coo);
-
-        System.out.println(island);
+//        System.out.println("hello hello");
+//        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
+//        ConcurrentHashMap<Coordinate, List<IslandObject>> island = creatingIslandService.ISLAND;
+//        Coordinate coo = new Coordinate(1,1);
+//        List<IslandObject> orDefault = island.get(coo);
+//
+//        System.out.println(island);
 /*
         AnimalFactory animalFactory = new AnimalFactory();
         Animal animal = animalFactory.createAnimal();
@@ -29,46 +29,18 @@ public class Runner {
 //        return resultListAnimals;
 
 
-//        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
-//        Map<Coordinate, Integer> coordinateIntegerMap = creatingIslandService.creatingMapWithCountAnimalsInSomeCoordinate();
-//        Set<Map.Entry<Coordinate, Integer>> entries = coordinateIntegerMap.entrySet();
-//        int count = 0;
-//        int countCoordinate = 0;
-//        for (Map.Entry<Coordinate, Integer> pair: entries) {
-//            System.out.println(pair.getKey() + " " + pair.getValue());
-//            count = count + pair.getValue();
-//            countCoordinate++;
-//        }
-//        System.out.println(count);
-//        System.out.println(countCoordinate);
-
-        
-
-
-//        AnimalFactory animalFactory = new AnimalFactory();
-//        Animal wolf = new Wolf();
-//
-//        for (int i = 0; i < 4; i++) {
-//            String str = "o";
-//            Animal animal = animalFactory.createAnimal();
-//            if (animal.getClass().equals(wolf.getClass()) ) {
-//                 str = "yes";
-//            }
-//            else {
-//                str = "no";
-//            }
-//
-//            System.out.println(animal + " " + animal.getClass() + " " + str);
-//        }
-
-
-//        ReadFileService readFileService = new ReadFileService();
-//
-//        CreatingIslandService creatingIslandService = new CreatingIslandService();
-//        System.out.println(creatingIslandService.ISLAND_PARAMETERS);
-
-
-
+        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
+        ConcurrentHashMap<Coordinate, List<IslandObject>> coordinateIntegerMap = creatingIslandService.ISLAND;
+        Set<Map.Entry<Coordinate, List<IslandObject>>> entries = coordinateIntegerMap.entrySet();
+        int count = 0;
+        int countCoordinate = 0;
+        for (Map.Entry<Coordinate, List<IslandObject>> pair: entries) {
+            System.out.println(pair.getKey() + " " + pair.getValue());
+//            count = count + pair.getValue().;
+            countCoordinate++;
+        }
+        System.out.println(count);
+        System.out.println(countCoordinate);
 
 
     }

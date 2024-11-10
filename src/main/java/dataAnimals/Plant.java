@@ -2,12 +2,11 @@ package dataAnimals;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
+@Setter
 public class Plant extends IslandObject {
     @JsonProperty("weight")
     private double weight;
@@ -22,5 +21,8 @@ public class Plant extends IslandObject {
     ) {
         this.weight = weight;
         this.maxAmount = maxAmount;
+    }
+    public String toString() {
+        return "Plant()";
     }
 }

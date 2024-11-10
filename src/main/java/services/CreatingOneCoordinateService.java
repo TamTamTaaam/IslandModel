@@ -7,6 +7,8 @@ import factory.AnimalFactory;
 import lombok.SneakyThrows;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 import static dataAnimals.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 import static dataAnimals.AnimalLibrary.PLANT;
 
@@ -24,7 +26,7 @@ public class CreatingOneCoordinateService {
         this.randomNumberService = new RandomNumberService();
     }
     List<IslandObject> creatingListIslandObjectInSomeCoordinate(Integer limitCountAnimalsInOneCoordinate) {
-        List<IslandObject> startIslandObjects = new ArrayList<>();
+        List<IslandObject> startIslandObjects = new CopyOnWriteArrayList<>();
         startIslandObjects.addAll(creatingListAnimalsInSomeCoordinate(limitCountAnimalsInOneCoordinate));
         startIslandObjects.addAll(creatingListPlantsInSomeCoordinate());
         return startIslandObjects;
