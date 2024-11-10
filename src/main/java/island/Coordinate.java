@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Coordinate {
-    public Integer x;
-    public Integer y;
+    private Integer x;
+    private Integer y;
 
     public Coordinate(Integer x, Integer y) {
         this.x = x;

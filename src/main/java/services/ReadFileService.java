@@ -13,20 +13,22 @@ import java.util.*;
 
 
 public class ReadFileService {
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
+
+    public ReadFileService() {
+        this.objectMapper = new ObjectMapper();
+    }
 
     @SneakyThrows
     public Map<String, Animal> readMapAllAnimals() {
 
-        Map<String, Animal> animals = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\AnimalCharacteristicsMap.json"),
+        return objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\AnimalCharacteristicsMap.json"),
                 new TypeReference<HashMap<String, Animal>>() {
                 });
-        return animals;
     }
     public List<String> createListAnimals(Map<String, Animal> mapAnimals) {
         List<String> resultListAnimals = new ArrayList<>();
-        Set<Map.Entry<String, Animal>> entries = mapAnimals.entrySet();
-        for (Map.Entry<String, Animal> map : entries) {
+        for (Map.Entry<String, Animal> map : mapAnimals.entrySet()) {
             String key = map.getKey();
             resultListAnimals.add(key);
         }
@@ -34,17 +36,12 @@ public class ReadFileService {
     }
     @SneakyThrows
     public IslandParameters readCoordinates()  {
-        IslandParameters coordinates = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\CoordinatesIsland.json"),
+        return objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\CoordinatesIsland.json"),
                 IslandParameters.class);
-        return coordinates;
     }
     @SneakyThrows
     public Plant readPlant()  {
-        Plant plant = objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\Plant.json"),
+        return objectMapper.readValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\Plant.json"),
                 Plant.class);
-        return plant;
     }
-
-
-
 }

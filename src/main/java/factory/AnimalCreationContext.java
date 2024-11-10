@@ -2,9 +2,6 @@ package factory;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import dataAnimals.*;
 import lombok.Data;
 
 import java.util.Map;
@@ -16,7 +13,7 @@ public class AnimalCreationContext {
    private String name;
 
    @JsonProperty("nameAnimal")
-   String nameAnimal;
+   private String nameAnimal;
 
    @JsonProperty("weight")
    private double weight;

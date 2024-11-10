@@ -3,11 +3,13 @@ package dataAnimals;
 import com.fasterxml.jackson.annotation.*;
 import factory.AnimalCreationContext;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "name")
+@EqualsAndHashCode(callSuper = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "name")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Wolf.class),
         @JsonSubTypes.Type(value = Bear.class),
