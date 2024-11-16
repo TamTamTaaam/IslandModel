@@ -1,10 +1,12 @@
-package services;
+package services.creatingField;
 
 import dataAnimals.Animal;
 import dataAnimals.IslandObject;
 import dataAnimals.Plant;
 import factory.AnimalFactory;
 import lombok.SneakyThrows;
+import services.RandomNumberService;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;

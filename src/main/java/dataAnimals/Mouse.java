@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-public class Mouse extends Animal {
+public class Mouse extends Animal implements Herbivore {
     @JsonCreator
     public Mouse(AnimalCreationContext animalCreationContext) {
         super(animalCreationContext);

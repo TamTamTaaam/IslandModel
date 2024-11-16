@@ -1,6 +1,7 @@
 import dataAnimals.*;
 import island.Coordinate;
-import services.CreatingStartingFieldService;
+import services.WriterFileService;
+import services.creatingField.CreatingStartingFieldService;
 
 import java.io.IOException;
 import java.util.*;
@@ -8,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Runner {
     public static void main(String[] args) throws IOException, IllegalAccessException {
+
 //        System.out.println("hello hello");
 //        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
 //        ConcurrentHashMap<Coordinate, List<IslandObject>> island = creatingIslandService.ISLAND;
@@ -31,17 +33,15 @@ public class Runner {
 
         CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
         ConcurrentHashMap<Coordinate, List<IslandObject>> coordinateIntegerMap = creatingIslandService.ISLAND;
+        WriterFileService writerFileService = new WriterFileService();
+        writerFileService.writeFile(coordinateIntegerMap);
         Set<Map.Entry<Coordinate, List<IslandObject>>> entries = coordinateIntegerMap.entrySet();
-        int count = 0;
         int countCoordinate = 0;
         for (Map.Entry<Coordinate, List<IslandObject>> pair: entries) {
             System.out.println(pair.getKey() + " " + pair.getValue());
-//            count = count + pair.getValue().;
             countCoordinate++;
         }
-        System.out.println(count);
         System.out.println(countCoordinate);
-
 
     }
 }

@@ -1,6 +1,8 @@
-package services;
+package services.creatingField;
 import dataAnimals.IslandObject;
 import island.Coordinate;
+import services.creatingField.CreatingOneCoordinateService;
+
 import java.util.*;
 import java.util.concurrent.*;
 
