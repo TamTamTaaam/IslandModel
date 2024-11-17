@@ -5,7 +5,7 @@ import island.Coordinate;
 import java.util.*;
 import java.util.concurrent.*;
 
-import static services.AnimalLibrary.ISLAND_PARAMETERS;
+import static services.IslandLibrary.ISLAND_PARAMETERS;
 
 public class CreatingStartingFieldService {
     public ConcurrentHashMap<Coordinate, List<IslandObject>> ISLAND;

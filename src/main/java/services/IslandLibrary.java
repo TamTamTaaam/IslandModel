@@ -2,15 +2,13 @@ package services;
 
 import dataAnimals.Animal;
 import dataAnimals.Plant;
-import island.Coordinate;
 import island.IslandParameters;
 import services.json.ReadFileService;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AnimalLibrary {
+public class IslandLibrary {
     private static final ReadFileService READ_FILE_SERVICE;
     public static final Map<String, Animal> MAP_ALL_ANIMALS_IN_PROGRAM;
     public static final List<String> LIST_ALL_ANIMALS_IN_PROGRAM;

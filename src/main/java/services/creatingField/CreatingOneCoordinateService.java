@@ -11,18 +11,18 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static services.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
-import static services.AnimalLibrary.PLANT;
+import static services.IslandLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
+import static services.IslandLibrary.PLANT;
 
 
-public class CreatingOneCoordinateService {
+class CreatingOneCoordinateService {
 
     private final Set<Map.Entry<String, Animal>> SET_ANIMAL;
     private final Map<String, Integer> MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES;
     private final AnimalFactory animalFactory;
     private final RandomNumberService randomNumberService;
 
-    public CreatingOneCoordinateService() {
+    CreatingOneCoordinateService() {
         this.SET_ANIMAL = MAP_ALL_ANIMALS_IN_PROGRAM.entrySet();
         this.MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES = createMapLimitAnimals();
         this.animalFactory = new AnimalFactory();
@@ -50,8 +50,6 @@ public class CreatingOneCoordinateService {
         }
         return animalsInOneCoordinate;
     }
-
-
 
     private List<Plant> creatingListPlantsInSomeCoordinate() {
         List<Plant> plants = new ArrayList<>();

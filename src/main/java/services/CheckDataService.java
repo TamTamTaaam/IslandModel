@@ -5,10 +5,10 @@ import dataAnimals.Herbivore;
 
 import java.util.*;
 
-import static services.AnimalLibrary.*;
+import static services.IslandLibrary.*;
 
 public class CheckDataService {
-    public final List<Animal> listAnimal;
+    private final List<Animal> listAnimal;
 
     public CheckDataService() {
         this.listAnimal = new ArrayList<>();
@@ -18,9 +18,8 @@ public class CheckDataService {
         }
     }
 
-    public void CheckCharacteristicsAnimals(Map<String, Animal> allAnimals) {
-
-
+    public boolean CheckCharacteristics() {
+        return CheckNegativeParameters() && CheckDietOfAnimals() && CheckPlantParameters() && CheckNegativeIslandParameters() && CheckCountAnimals();
     }
     private boolean CheckNegativeParameters() {
         boolean result = true;
@@ -61,12 +60,16 @@ public class CheckDataService {
     }
     private boolean CheckCountAnimals() {
         boolean result = true;
-        Integer limitAllAnimals = 0;
-        Map<String, Integer> limitAnimal = new HashMap<>();
+        int sumAnimal = 0;
             for (Map.Entry<String, Animal> map : MAP_ALL_ANIMALS_IN_PROGRAM.entrySet()) {
-                limitAnimal.put(map.getKey(), map.getValue().getMaxAmount());
+                sumAnimal = sumAnimal+map.getValue().getMaxAmount();
             }
-
+        int countCoordinates = ISLAND_PARAMETERS.getCoordinateX()*ISLAND_PARAMETERS.getCoordinateY();
+        int maxCountAnimalInIsland = countCoordinates*sumAnimal;
+        if(ISLAND_PARAMETERS.getCountAnimals()>maxCountAnimalInIsland) {
+            System.out.println("Ошибка! Большое значение countAnimals, невозможно разместить животных на поле");
+            result = false;
+        }
         return result;
     }
 }
