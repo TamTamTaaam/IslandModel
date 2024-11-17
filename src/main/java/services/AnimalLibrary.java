@@ -1,8 +1,12 @@
-package dataAnimals;
+package services;
 
+import dataAnimals.Animal;
+import dataAnimals.Plant;
+import island.Coordinate;
 import island.IslandParameters;
-import services.ReadFileService;
+import services.json.ReadFileService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,5 +29,6 @@ public class AnimalLibrary {
             throw new RuntimeException(e);
         }
     }
+
     
 }

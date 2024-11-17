@@ -1,6 +1,7 @@
 import dataAnimals.*;
 import island.Coordinate;
-import services.WriterFileService;
+import services.CheckDataService;
+import services.json.WriterFileService;
 import services.creatingField.CreatingStartingFieldService;
 
 import java.io.IOException;
@@ -31,17 +32,20 @@ public class Runner {
 //        return resultListAnimals;
 
 
-        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
-        ConcurrentHashMap<Coordinate, List<IslandObject>> coordinateIntegerMap = creatingIslandService.ISLAND;
-        WriterFileService writerFileService = new WriterFileService();
-        writerFileService.writeFile(coordinateIntegerMap);
-        Set<Map.Entry<Coordinate, List<IslandObject>>> entries = coordinateIntegerMap.entrySet();
-        int countCoordinate = 0;
-        for (Map.Entry<Coordinate, List<IslandObject>> pair: entries) {
-            System.out.println(pair.getKey() + " " + pair.getValue());
-            countCoordinate++;
-        }
-        System.out.println(countCoordinate);
+//        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
+//        ConcurrentHashMap<Coordinate, List<IslandObject>> coordinateIntegerMap = creatingIslandService.ISLAND;
+//        WriterFileService writerFileService = new WriterFileService();
+//        writerFileService.writeFile(coordinateIntegerMap);
+//        Set<Map.Entry<Coordinate, List<IslandObject>>> entries = coordinateIntegerMap.entrySet();
+//        int countCoordinate = 0;
+//        for (Map.Entry<Coordinate, List<IslandObject>> pair: entries) {
+//            System.out.println(pair.getKey() + " " + pair.getValue());
+//            countCoordinate++;
+//        }
+//        System.out.println(countCoordinate);
+        CheckDataService checkDataService = new CheckDataService();
+        List<Animal> listAnimal = checkDataService.listAnimal;
+        System.out.println(listAnimal);
 
     }
 }

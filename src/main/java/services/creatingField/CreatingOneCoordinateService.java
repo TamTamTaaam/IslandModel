@@ -11,8 +11,9 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static dataAnimals.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
-import static dataAnimals.AnimalLibrary.PLANT;
+import static services.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
+import static services.AnimalLibrary.PLANT;
+
 
 public class CreatingOneCoordinateService {
 
@@ -39,17 +40,18 @@ public class CreatingOneCoordinateService {
         Map<String, Integer> countSomeAnimalInOneCoordinate = new ConcurrentHashMap<>();
         while (animalsInOneCoordinate.size()!=limitCountAnimalsInOneCoordinate){
             Animal newAddAnimal = animalFactory.createAnimal();
-            if(countSomeAnimalInOneCoordinate.containsKey(newAddAnimal.getNameAnimal())) {
-                countSomeAnimalInOneCoordinate.computeIfPresent(newAddAnimal.getNameAnimal(), (key, value) -> value+1);
-                if(countSomeAnimalInOneCoordinate.get(newAddAnimal.getNameAnimal())< MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES.get(newAddAnimal.getNameAnimal())) {
-                    animalsInOneCoordinate.add(newAddAnimal);
-                }
-            } else {
-                countSomeAnimalInOneCoordinate.put(newAddAnimal.getNameAnimal(), 1);
+            String animalName = newAddAnimal.getNameAnimal();
+            int currentCount = countSomeAnimalInOneCoordinate.getOrDefault(animalName, 0);
+            int limitCount = MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES.get(animalName);
+            if (currentCount < limitCount) {
+                animalsInOneCoordinate.add(newAddAnimal);
+                countSomeAnimalInOneCoordinate.put(animalName, currentCount + 1);
             }
         }
         return animalsInOneCoordinate;
     }
+
+
 
     private List<Plant> creatingListPlantsInSomeCoordinate() {
         List<Plant> plants = new ArrayList<>();

@@ -5,8 +5,7 @@ import dataAnimals.Plant;
 
 import java.util.List;
 
-import static dataAnimals.AnimalLibrary.PLANT;
-
+import static services.AnimalLibrary.PLANT;
 public class GrowingPlantsService {
     public void growingPlants(List<IslandObject> island) {
         island.add(new Plant(PLANT.getWeight(), PLANT.getMaxAmount()));

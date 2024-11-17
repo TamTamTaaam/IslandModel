@@ -4,9 +4,8 @@ import services.RandomNumberService;
 import java.util.Map;
 import java.util.function.Function;
 
-import static dataAnimals.AnimalLibrary.LIST_ALL_ANIMALS_IN_PROGRAM;
-import static dataAnimals.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
-
+import static services.AnimalLibrary.LIST_ALL_ANIMALS_IN_PROGRAM;
+import static services.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 
 public class AnimalFactory {
     private final RandomNumberService randomNumberService;

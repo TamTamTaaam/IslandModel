@@ -1,12 +1,11 @@
 package services.creatingField;
 import dataAnimals.IslandObject;
 import island.Coordinate;
-import services.creatingField.CreatingOneCoordinateService;
 
 import java.util.*;
 import java.util.concurrent.*;
 
-import static dataAnimals.AnimalLibrary.ISLAND_PARAMETERS;
+import static services.AnimalLibrary.ISLAND_PARAMETERS;
 
 public class CreatingStartingFieldService {
     public ConcurrentHashMap<Coordinate, List<IslandObject>> ISLAND;

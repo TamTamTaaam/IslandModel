@@ -1,4 +1,4 @@
-package services;
+package services.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -22,7 +22,7 @@ public class WriterFileService {
     }
     @SneakyThrows
     public void writeFile(ConcurrentHashMap<Coordinate, List<IslandObject>> island) {
-        objectMapper.writeValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\ResultCountAnimalsSomeCoordinate.json"), createMapStatistic(island));
+       // objectMapper.writeValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\ResultCountAnimalsSomeCoordinate.json"), createMapStatistic(island));
         objectMapper.writeValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\ResultAllIsland.json"), creatingMapStaticSumAllCoordinatesIsland(island));
     }
 

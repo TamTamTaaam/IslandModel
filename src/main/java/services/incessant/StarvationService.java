@@ -5,7 +5,7 @@ import dataAnimals.IslandObject;
 
 import java.util.List;
 
-import static dataAnimals.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
+import static services.AnimalLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 
 public class StarvationService {
     private final double percentageDecreaseSatiety = 0.2;
