@@ -1,5 +1,6 @@
 {
   "x": 15,
   "y": 10,
-  "countAnimals": 20000
+  "countAnimals": 20000,
+  "tactTime": 5
 }

@@ -1,4 +1,4 @@
-package services.incessant;
+package services.forLife;
 
 import dataAnimals.Animal;
 import dataAnimals.Herbivore;

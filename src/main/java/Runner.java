@@ -15,14 +15,19 @@ import static services.IslandLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 
 
 public class Runner {
-    public static void main(String[] args) throws IOException, IllegalAccessException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, InterruptedException {
 
 
         IslandLife islandLife = new IslandLife();
         islandLife.life();
         System.out.println("the end");
 
-
+//        IslandLife islandLife = new IslandLife();
+//        ConcurrentHashMap<Coordinate, List<IslandObject>> island = islandLife.island;
+//        for (Map.Entry<Coordinate, List<IslandObject>> pair: island.entrySet()) {
+//            System.out.println(pair.getKey() + " " + pair.getValue());
+//        }
+//        System.out.println("the end");
 
 
 

@@ -54,7 +54,7 @@ public class CheckDataService {
 
     private boolean CheckNegativeIslandParameters() {
         boolean result = true;
-        if(ISLAND_PARAMETERS.getCoordinateY()<1 || ISLAND_PARAMETERS.getCoordinateX()<1 ) {
+        if(ISLAND_PARAMETERS.getCoordinateY()<1 || ISLAND_PARAMETERS.getCoordinateX()<1 || ISLAND_PARAMETERS.getTactTime()<1) {
             System.out.println("Ошибка! Отрицательные координаты острова");
             result = false;
         }
