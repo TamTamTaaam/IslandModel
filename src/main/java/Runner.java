@@ -25,6 +25,7 @@ public class Runner {
 
 
 
+
 //        CreatingStartingFieldService creatingIslandService = new CreatingStartingFieldService();
 //        ConcurrentHashMap<Coordinate, List<IslandObject>> coordinateIntegerMap = creatingIslandService.ISLAND;
 //        WriterFileService writerFileService = new WriterFileService();
