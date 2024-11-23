@@ -9,10 +9,7 @@ import static services.IslandLibrary.*;
 
 public class CheckDataService {
     private final List<Animal> listAnimal;
-    private IslandLibrary islandLibrary;
-
     public CheckDataService() {
-        this.islandLibrary = new IslandLibrary();
         this.listAnimal = new ArrayList<>();
         for (Map.Entry<String, Animal> map : MAP_ALL_ANIMALS_IN_PROGRAM.entrySet()) {
             Animal animal = map.getValue();

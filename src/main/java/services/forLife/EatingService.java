@@ -5,44 +5,35 @@ import dataAnimals.Herbivore;
 import dataAnimals.IslandObject;
 import dataAnimals.Plant;
 import services.RandomNumberService;
+import services.incessant.ChoiceAnimalService;
+import services.incessant.SelectionOnlyAnimalsService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static services.IslandLibrary.PLANT;
 
 public class EatingService {
-    private final RandomNumberService randomNumberService;
+    private final ChoiceAnimalService choiceAnimalForFeeding;
     private List<IslandObject> islandObjects;
     private final Plant plant;
+    private final SelectionOnlyAnimalsService selectionOnlyAnimalsFromList;
+    private final RandomNumberService randomNumberService;
 
     public EatingService(List<IslandObject> islandObjects) {
-        this.randomNumberService = new RandomNumberService();
+        this.selectionOnlyAnimalsFromList = new SelectionOnlyAnimalsService();
+        this.choiceAnimalForFeeding = new ChoiceAnimalService();
         this.islandObjects = islandObjects;
+        this.randomNumberService = new RandomNumberService();
         this.plant = new Plant(PLANT.getWeight(), PLANT.getMaxAmount());
     }
 
     public void eat() {
-        List<Animal> animals = selectionOnlyAnimalsFromList(islandObjects);
-        Animal animalForFeeding = choiceAnimalForFeeding(animals);
+        List<Animal> animals = selectionOnlyAnimalsFromList.selectionAnimals(islandObjects);
+        Animal animalForFeeding = choiceAnimalForFeeding.choiceAnimal(animals);
         selectCategoryFeeding(animalForFeeding);
-
     }
 
-    private List<Animal> selectionOnlyAnimalsFromList(List<IslandObject> islandObjects) {
-        List<Animal> animals = new ArrayList<>();
-        for (IslandObject islandObject : islandObjects) {
-            if (islandObject instanceof Animal animal) {
-                animals.add(animal);
-            }
-        }
-        return animals;
-    }
-    private Animal choiceAnimalForFeeding(List<Animal> animals) {
-        int randomNumberAnimal = randomNumberService.getRandomNumber(animals.size());
-        return animals.get(randomNumberAnimal);
-    }
     private  void selectCategoryFeeding(Animal animalForFeeding) {
         if(animalForFeeding.getChanceEatingAnimal().isEmpty() && animalForFeeding instanceof Herbivore) {
             feedingHerbivores(animalForFeeding);
