@@ -15,7 +15,7 @@ public class StarvationService {
             if (islandObject instanceof Animal animal) {
                 if (animal.getMaxSatiety() > 0) {
                     double nowSatiety = animal.getMaxSatiety();
-                    double actualSatiety = nowSatiety - (MAP_ALL_ANIMALS_IN_PROGRAM.get(animal).getMaxSatiety() * percentageDecreaseSatiety);
+                    double actualSatiety = nowSatiety - (MAP_ALL_ANIMALS_IN_PROGRAM.get(animal.getNameAnimal()).getMaxSatiety() * percentageDecreaseSatiety);
                     animal.setMaxSatiety(actualSatiety);
                 } else {
                     island.remove(animal);

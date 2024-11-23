@@ -9,8 +9,10 @@ import static services.IslandLibrary.*;
 
 public class CheckDataService {
     private final List<Animal> listAnimal;
+    private IslandLibrary islandLibrary;
 
     public CheckDataService() {
+        this.islandLibrary = new IslandLibrary();
         this.listAnimal = new ArrayList<>();
         for (Map.Entry<String, Animal> map : MAP_ALL_ANIMALS_IN_PROGRAM.entrySet()) {
             Animal animal = map.getValue();
@@ -24,7 +26,7 @@ public class CheckDataService {
     private boolean CheckNegativeParameters() {
         boolean result = true;
         for (Animal animal : listAnimal) {
-            if (animal.getWeight() <= 0 || animal.getMaxAmount() <= 0 || animal.getMaxSpeed() <= 0 || animal.getMaxSatiety() <= 0) {
+            if (animal.getWeight() <= 0 || animal.getMaxAmount() <= 0 || animal.getMaxSpeed() < 0 || animal.getMaxSatiety() <= 0) {
                 System.out.println("Ошибка! Отрицательные характеристики у животного" + animal.getNameAnimal());
                 result = false;
             }
@@ -34,7 +36,7 @@ public class CheckDataService {
     private boolean CheckDietOfAnimals() {
         boolean result = true;
         for (Animal animal : listAnimal) {
-            if(animal.getChanceEatingAnimal().isEmpty() && !(animal instanceof Herbivore)) {
+            if(animal.getChanceEatingAnimal()==null && !(animal instanceof Herbivore)) {
                 System.out.println("Животное " + animal.getNameAnimal() + " не может питаться. Пустой список ChanceEatingAnimal и не является Herbivore");
                 result = false;
             }

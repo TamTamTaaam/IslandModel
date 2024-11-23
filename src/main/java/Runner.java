@@ -1,10 +1,26 @@
+import dataAnimals.IslandObject;
+import island.Coordinate;
+import services.IslandLibrary;
+import services.IslandLife;
 import services.creatingField.CreatingStartingFieldService;
+import services.json.WriterFileService;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static services.IslandLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 
 
 public class Runner {
     public static void main(String[] args) throws IOException, IllegalAccessException {
+
+
+        IslandLife islandLife = new IslandLife();
+        islandLife.life();
+        System.out.println("the end");
 
 
 
