@@ -21,38 +21,47 @@ public class CreatingStartingFieldService {
         this.ISLAND = creatingWorld();
     }
 
+    private ConcurrentHashMap<Coordinate, List<IslandObject>> creatingWorld()  {
+        ConcurrentHashMap<Coordinate, List<IslandObject>> ISLAND = new ConcurrentHashMap<>();
+        Set<Map.Entry<Coordinate, Integer>> entries = LIMIT_COUNT_ANIMALS_IN_SOME_COORDINATES.entrySet();
+            for (Map.Entry<Coordinate, Integer> map : entries) {
+                List<IslandObject> islandObjects = creatingOneCoordinateService.creatingListIslandObjectInSomeCoordinate(map.getValue());
+                ISLAND.putIfAbsent(map.getKey(), islandObjects);
+            }
+        return ISLAND;
+    }
 //    private ConcurrentHashMap<Coordinate, List<IslandObject>> creatingWorld()  {
 //        ConcurrentHashMap<Coordinate, List<IslandObject>> island = new ConcurrentHashMap<>();
 //        Set<Map.Entry<Coordinate, Integer>> entries = LIMIT_COUNT_ANIMALS_IN_SOME_COORDINATES.entrySet();
+//        try (ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
+//            List<Future<?>> futures = new ArrayList<>();
 //            for (Map.Entry<Coordinate, Integer> map : entries) {
-//                List<IslandObject> islandObjects = creatingOneCoordinateService.creatingListIslandObjectInSomeCoordinate(map.getValue());
-//                island.putIfAbsent(map.getKey(), islandObjects);
+//                futures.add(executorService.submit(() -> {
+//                    List<IslandObject> islandObjects = creatingOneCoordinateService.creatingListIslandObjectInSomeCoordinate(map.getValue());
+//                    island.putIfAbsent(map.getKey(), islandObjects);
+//                }));
 //            }
+//            for (Future<?> future : futures) {
+//                try {
+//                    future.get();
+//                } catch (InterruptedException | ExecutionException e) {
+//                    System.out.println("Error CreatingStartingFieldService");
+//                    Thread.currentThread().interrupt();
+//                    e.printStackTrace();
+//                }
+//            }
+//            executorService.shutdown();
+//            try {
+//                if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
+//                    executorService.shutdownNow();
+//                }
+//            } catch (InterruptedException e) {
+//                executorService.shutdownNow();
+//                Thread.currentThread().interrupt();
+//            }
+//        }
 //        return island;
 //    }
-    private ConcurrentHashMap<Coordinate, List<IslandObject>> creatingWorld()  {
-        ConcurrentHashMap<Coordinate, List<IslandObject>> island = new ConcurrentHashMap<>();
-        Set<Map.Entry<Coordinate, Integer>> entries = LIMIT_COUNT_ANIMALS_IN_SOME_COORDINATES.entrySet();
-        try (ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
-            List<Future<?>> futures = new ArrayList<>();
-            for (Map.Entry<Coordinate, Integer> map : entries) {
-                futures.add(executorService.submit(() -> {
-                    List<IslandObject> islandObjects = creatingOneCoordinateService.creatingListIslandObjectInSomeCoordinate(map.getValue());
-                    island.putIfAbsent(map.getKey(), islandObjects);
-                }));
-            }
-            for (Future<?> future : futures) {
-                try {
-                    future.get();
-                } catch (InterruptedException | ExecutionException e) {
-                    System.out.println("Error CreatingStartingFieldService");
-                    e.printStackTrace();
-                }
-            }
-            executorService.shutdown();
-        }
-        return island;
-    }
 
     private Map<Coordinate, Integer> creatingMapWithLimitCountAnimalsInSomeCoordinate() {
         Map<Coordinate, Integer> countAnimalsInSomeCoordinate = new HashMap<>();

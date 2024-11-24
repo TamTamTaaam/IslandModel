@@ -40,6 +40,6 @@ public class DemographyService {
     }
     private boolean checkMaxCountAnimalsOneTypeInOneCoordinate(int countAnimalsInOneCoordinate) {
         int maxCountAnimalsInOneCoordinate = MAP_ALL_ANIMALS_IN_PROGRAM.get(animalForReproduction.getNameAnimal()).getMaxAmount();
-        return countAnimalsInOneCoordinate < maxCountAnimalsInOneCoordinate;
+        return countAnimalsInOneCoordinate < maxCountAnimalsInOneCoordinate && countAnimalsInOneCoordinate>=2;
     }
 }

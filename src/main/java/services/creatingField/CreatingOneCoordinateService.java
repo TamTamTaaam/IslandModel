@@ -6,25 +6,23 @@ import dataAnimals.Plant;
 import factory.AnimalFactory;
 import lombok.SneakyThrows;
 import services.RandomNumberService;
+import services.helper.CreateMapLimitAnimals;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static services.IslandLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 import static services.IslandLibrary.PLANT;
 
 
 class CreatingOneCoordinateService {
 
-    private final Set<Map.Entry<String, Animal>> SET_ANIMAL;
-    private final Map<String, Integer> MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES;
+    private final CreateMapLimitAnimals createMapLimitAnimals;
     private final AnimalFactory animalFactory;
     private final RandomNumberService randomNumberService;
 
     CreatingOneCoordinateService() {
-        this.SET_ANIMAL = MAP_ALL_ANIMALS_IN_PROGRAM.entrySet();
-        this.MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES = createMapLimitAnimals();
+        this.createMapLimitAnimals = new CreateMapLimitAnimals();
         this.animalFactory = new AnimalFactory();
         this.randomNumberService = new RandomNumberService();
     }
@@ -42,7 +40,7 @@ class CreatingOneCoordinateService {
             Animal newAddAnimal = animalFactory.createAnimalsStart();
             String animalName = newAddAnimal.getNameAnimal();
             int currentCount = countSomeAnimalInOneCoordinate.getOrDefault(animalName, 0);
-            int limitCount = MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES.get(animalName);
+            int limitCount = createMapLimitAnimals.MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES.get(animalName);
             if (currentCount < limitCount) {
                 animalsInOneCoordinate.add(newAddAnimal);
                 countSomeAnimalInOneCoordinate.put(animalName, currentCount + 1);
@@ -59,11 +57,4 @@ class CreatingOneCoordinateService {
         return plants;
     }
 
-    private Map<String, Integer> createMapLimitAnimals() {
-        Map<String, Integer> limitAnimal = new HashMap<>();
-        for (Map.Entry<String, Animal> map : SET_ANIMAL) {
-           limitAnimal.put(map.getKey(), map.getValue().getMaxAmount());
-        }
-        return limitAnimal;
-    }
 }

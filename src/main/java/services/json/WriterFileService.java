@@ -31,20 +31,20 @@ public class WriterFileService {
         } catch (IOException e) {
             throw new IOException("Ошибка при записи в файл: " + e.getMessage(), e);
         }
-        // objectMapper.writeValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\ResultCountAnimalsSomeCoordinate.json"), createMapStatistic(island));
+        // objectMapper.writeValue(new File("C:\\Projects\\IslandModel\\src\\main\\java\\configs\\ResultCountAnimalsSomeCoordinate.json"), createMapStatistic(ISLAND));
 
     }
-//    private Map<Coordinate, Map<IslandObject, Integer>> createMapStatistic(ConcurrentHashMap<Coordinate, List<IslandObject>> island) {
+//    private Map<Coordinate, Map<IslandObject, Integer>> createMapStatistic(ConcurrentHashMap<Coordinate, List<IslandObject>> ISLAND) {
 //        Map<Coordinate, Map<IslandObject, Integer>> statistic = new HashMap<>();
-//        for (Map.Entry<Coordinate, List<IslandObject>> map : island.entrySet()) {
+//        for (Map.Entry<Coordinate, List<IslandObject>> map : ISLAND.entrySet()) {
 //            Coordinate coordinate = map.getKey();
 //            statistic.put(coordinate, creatingMapStatisticOneCoordinate(map.getValue()));
 //        }
 //        return statistic;
 //    }
-//    private Map<IslandObject, Integer> creatingMapStatisticOneCoordinate(List<IslandObject> island) {
+//    private Map<IslandObject, Integer> creatingMapStatisticOneCoordinate(List<IslandObject> ISLAND) {
 //        Map<IslandObject, Integer> statisticOneCoordinate = new HashMap<>();
-//        for (IslandObject islandObjectInList : island) {
+//        for (IslandObject islandObjectInList : ISLAND) {
 //            statisticOneCoordinate.merge(islandObjectInList, 1, Integer::sum);
 //        }
 //        return statisticOneCoordinate;

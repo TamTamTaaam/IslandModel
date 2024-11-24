@@ -5,7 +5,7 @@ import dataAnimals.Herbivore;
 import dataAnimals.IslandObject;
 import dataAnimals.Plant;
 import services.RandomNumberService;
-import services.incessant.SelectionOnlyAnimalsService;
+import services.helper.SelectionOnlyAnimalsService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,19 +60,22 @@ public class EatingService {
     private void feedingPredators(Animal animalForFeeding) {
         Map<String, Integer> chanceEatingAnimal = animalForFeeding.getChanceEatingAnimal();
         List<Animal> listOfAnimalsToEat = getListOfAnimalsToEat(chanceEatingAnimal);
-        int i = 0;
-        for (Animal animals: listOfAnimalsToEat) {
-            while (i<1) {
+        if(!(listOfAnimalsToEat.isEmpty())) {
+            int i = 0;
+            Integer randomNumber1 = randomNumberService.getRandomNumber(listOfAnimalsToEat.size());
+            Animal animal = listOfAnimalsToEat.get(randomNumber1);
+            while (i < 1) {
                 int randomNumber = randomNumberService.getRandomNumber(101);
-                if (randomNumber >= chanceEatingAnimal.get(animals.getNameAnimal())) {
-                    double satietyAfterEating = satietyControl(animalForFeeding, animals.getWeight());
+                if (randomNumber <= chanceEatingAnimal.get(animal.getNameAnimal())) {
+                    double satietyAfterEating = satietyControl(animalForFeeding, animal.getWeight());
                     animalForFeeding.setMaxSatiety(satietyAfterEating);
-                    partWorldWithIslandObjects.remove(animals);
-                    i = i+1;
-                    System.out.println(animalForFeeding + "хищник съел " + animals);
+                    partWorldWithIslandObjects.remove(animal);
+                    i = i + 1;
+                    System.out.println(animalForFeeding + "хищник съел " + animal);
                 }
             }
         }
+
     }
 
     private List<Animal> getListOfAnimalsToEat(Map<String, Integer> chanceEatingAnimal) {
