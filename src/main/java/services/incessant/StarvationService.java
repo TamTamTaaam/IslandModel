@@ -8,7 +8,7 @@ import java.util.List;
 import static services.IslandLibrary.MAP_ALL_ANIMALS_IN_PROGRAM;
 
 public class StarvationService {
-    private final double percentageDecreaseSatiety = 0.2;
+    private final double percentageDecreaseSatiety = 0.15;
 
     public void starvation(List<IslandObject> island) {
         for (IslandObject islandObject : island) {

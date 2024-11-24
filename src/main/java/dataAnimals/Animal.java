@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "name")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Wolf.class),
@@ -26,9 +26,11 @@ import java.util.Map;
 public abstract class Animal extends IslandObject {
 
     @JsonProperty("name")
+    @EqualsAndHashCode.Include
     String name;
 
     @JsonProperty("nameAnimal")
+    @EqualsAndHashCode.Include
     String nameAnimal;
 
     @JsonProperty("weight")

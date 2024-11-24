@@ -55,6 +55,7 @@ public class EatingService {
             animalForFeeding.setMaxSatiety(satietyAfterEat);
             partWorldWithIslandObjects.remove(indexSomePlant);
         }
+        System.out.println(animalForFeeding + "поел");
     }
     private void feedingPredators(Animal animalForFeeding) {
         Map<String, Integer> chanceEatingAnimal = animalForFeeding.getChanceEatingAnimal();
@@ -68,6 +69,7 @@ public class EatingService {
                     animalForFeeding.setMaxSatiety(satietyAfterEating);
                     partWorldWithIslandObjects.remove(animals);
                     i = i+1;
+                    System.out.println(animalForFeeding + "хищник съел " + animals);
                 }
             }
         }
