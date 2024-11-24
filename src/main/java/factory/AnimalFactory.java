@@ -1,5 +1,6 @@
 package factory;
 import dataAnimals.*;
+import lombok.SneakyThrows;
 import services.RandomNumberService;
 import java.util.Map;
 import java.util.function.Function;
@@ -25,7 +26,8 @@ public class AnimalFactory {
             Map.entry("Worm", Worm::new)
     );
 
-    public Animal createAnimal() throws IllegalAccessException {
+    @SneakyThrows
+    public Animal createAnimalsStart() {
         int randomNumberOfAnimalInList = randomNumberService.getRandomNumber(LIST_ALL_ANIMALS_IN_PROGRAM.size());
         String keyAnimal = LIST_ALL_ANIMALS_IN_PROGRAM.get(randomNumberOfAnimalInList);
         Animal animal = MAP_ALL_ANIMALS_IN_PROGRAM.get(keyAnimal);
@@ -34,6 +36,16 @@ public class AnimalFactory {
             throw new IllegalAccessException();
         }
         Function<AnimalCreationContext, Animal> animalFunction = ALL_ANIMALS_MAP.get(keyAnimal);
+        return animalFunction.apply(parameters);
+    }
+    @SneakyThrows
+    public Animal createAnimal(String keyAnimalName) {
+        Animal animal = MAP_ALL_ANIMALS_IN_PROGRAM.get(keyAnimalName);
+        AnimalCreationContext parameters = new AnimalCreationContext(animal.getName(), animal.getNameAnimal(), animal.getWeight(), animal.getMaxAmount(), animal.getMaxSpeed(), animal.getMaxSatiety(), animal.getChanceEatingAnimal());
+        if (!ALL_ANIMALS_MAP.containsKey(keyAnimalName)) {
+            throw new IllegalAccessException();
+        }
+        Function<AnimalCreationContext, Animal> animalFunction = ALL_ANIMALS_MAP.get(keyAnimalName);
         return animalFunction.apply(parameters);
     }
 }

@@ -1,5 +1,6 @@
 import dataAnimals.*;
 import island.Coordinate;
+import lombok.SneakyThrows;
 import services.IslandLibrary;
 import services.IslandLife;
 import services.creatingField.CreatingStartingFieldService;
@@ -7,6 +8,7 @@ import services.forLife.EatingService;
 import services.json.WriterFileService;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,12 +20,20 @@ import static services.IslandLibrary.PLANT;
 
 
 public class Runner {
-    public static void main(String[] args) throws IOException, IllegalAccessException, InterruptedException {
+    @SneakyThrows
+    public static void main(String[] args)  {
 
 
         IslandLife islandLife = new IslandLife();
         islandLife.life();
         System.out.println("the end");
+
+//        Animal animal = new Rabbit();
+//        Class<? extends Animal> animalClass = animal.getClass();
+//        Animal newAnimal = animalClass.getDeclaredConstructor().newInstance();
+//
+//        System.out.println(newAnimal);
+//        System.out.println(newAnimal.getNameAnimal());
 
 //        IslandLife islandLife = new IslandLife();
 //        EatingService eatingService = new EatingService();

@@ -39,7 +39,7 @@ class CreatingOneCoordinateService {
         List<Animal> animalsInOneCoordinate = new ArrayList<>();
         Map<String, Integer> countSomeAnimalInOneCoordinate = new ConcurrentHashMap<>();
         while (animalsInOneCoordinate.size()!=limitCountAnimalsInOneCoordinate){
-            Animal newAddAnimal = animalFactory.createAnimal();
+            Animal newAddAnimal = animalFactory.createAnimalsStart();
             String animalName = newAddAnimal.getNameAnimal();
             int currentCount = countSomeAnimalInOneCoordinate.getOrDefault(animalName, 0);
             int limitCount = MAP_WITH_LIMIT_COUNT_ANIMALS_IN_COORDINATES.get(animalName);
